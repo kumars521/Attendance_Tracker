@@ -1,0 +1,755 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+}
+
+
+/*#d9e6ec - Submit Blue */
+
+
+/*#e5e2c4 - Evaluate beige */
+
+
+/*#007dba - ANZ Blue */
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   FONTS -    -   -   -   -   -   -   -   -   -   */
+
+@font-face {
+    font-family: "myriad-pro";
+    src: url(../fonts/MyriadPro/EpnkSOG4vMRFgHj8uHFlCYwI-lbQjfoYYdzkyAYkHlwff4nygsM-eMI6MK6f5Mb.eot);
+    src: url(../fonts/MyriadPro/UUo6vtDLDshF4IHYdD2mVu_u754Rz-R7GHqv677BIoqff4nygsM-eMJ6Mk6f5Mb.woff) format("woff"), url(../fonts/MyriadPro/EkkKI08DJV-PkZ1g3jj7L9jzconvofhoA_ws9nMcZMXff4nygsM-eMJ6MP6f5Mb.otf) format("opentype"), url(../fonts/MyriadPro/QKKwd4P8yLcwDxAtbrdPsOsQVn7i6goEkV1GiNgU7PIff4nygsM-eMI6MP6f5Mb.otf) format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "myriad-pro";
+    src: url(../fonts/MyriadPro/dd2Q-_qrtArB4Fev3OnIusSXzTCfq3voN9fNKqUbk4Cff4_ygsM-eMI6MK6f5Mj.eot);
+    src: url(../fonts/MyriadPro/RhRjJ9IbALPbrN-FMmdmA0AqVoJwvCBkeRrJvN2aqvbff4DygsM-eMJ6Mk6f5Mj.woff) format("woff"), url(../fonts/MyriadPro/Q60xXg-FRtJz6eIMpoZnHdoQT48G-BHt7MRJldGyQPCff4DygsM-eMJ6MP6f5Mj.otf) format("opentype"), url(../fonts/MyriadPro/_OL_zFs7o0e7Ggab1ZBHM0Ji_8MmWHfQrgC5rOHotH6ff4DygsM-eMI6MP6f5Mj.otf) format("truetype");
+    font-style: normal;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "myriad-pro";
+    src: url(../fonts/MyriadPro/dd2Q-_qrtArB4Fev3OnIusSXzTCfq3voN9fNKqUbk4Cff4_ygsM-eMI6MK6f5MS.eot);
+    src: url(../fonts/MyriadPro/oRibSQALMng_d1X07tB5_D6PghlVI2GC9SjF1NZT61Cff4_ygsM-eMJ6Mk6f5MS.woff) format("woff"), url(../fonts/MyriadPro/lxtKWM-vZ7PcmKAmf9aPl9t4jBRxgaqcKZgwIbPGiyIff4_ygsM-eMJ6MP6f5MS.otf) format("opentype"), url(../fonts/MyriadPro/dQvlgNaArI49uXW_K2hs7J6OAX8RG8mok7LXzyAfYtvff4_ygsM-eMI6MP6f5MS.otf) format("truetype");
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'proxima_novabold';
+    src: url('../fonts/proximanova-bold-webfont.eot');
+    src: url('../fonts/proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/proximanova-bold-webfont.woff2') format('woff2'), url('../fonts/proximanova-bold-webfont.woff') format('woff'), url('../fonts/proximanova-bold-webfont.ttf') format('truetype'), url('../fonts/proximanova-bold-webfont.svg#proxima_novabold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    color: White;
+}
+
+body,
+html {
+    padding-top: 25px;
+    padding-bottom: 40px;
+}
+
+.imgresize {
+    position: absolute;
+    height: auto;
+    width: 100%;
+    top: 62%;
+    left: 50%;
+    margin-left: -50%;
+}
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   MODAL POPUP -    -   -   -   -   -   -   -   -   -   */
+
+.buttonup {
+    position: absolute;
+    bottom: 550px;
+    left: -410px;
+}
+
+.hideit {
+    display: none;
+}
+
+.showit {
+    display: block;
+}
+
+.wraptextup {
+    word-wrap: break-word;
+}
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   MODAL POPUP -    -   -   -   -   -   -   -   -   -   */
+
+.tBackground {
+    background-color: Black;
+    filter: alpha(opacity=90);
+    opacity: 0.8;
+}
+
+.tPopup {
+    background-color: #FFFFFF;
+    border-width: 10px;
+    border-style: solid;
+    border-color: blue;
+    padding-top: 10px;
+    padding-left: 10px;
+    width: 80%;
+}
+
+
+/*Controls Popup sizing*/
+
+.tForm {
+    margin-top: -60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 5px;
+}
+
+
+/*Controls Popup Iframe Size*/
+
+.tIframe {
+    border: none;
+    position: fixed;
+    top: 10px;
+    left: 8%;
+    width: 80%;
+    height: 585px;
+    overflow: hidden;
+}
+
+
+/*Controls Popup Iframe Size*/
+
+#upGAL {
+    float: left;
+    overflow: auto;
+    height: 302px;
+    width: 100%;
+}
+
+
+/*X for Popup to close*/
+
+.popupcclose {
+    top: 388px;
+    position: fixed;
+    margin-left: 12%;
+}
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   MODAL POPUP -    -   -   -   -   -   -   -   -   -   */
+
+.img-background {
+    width: 100%;
+    height: auto;
+    padding: 50px 400px 50px 400px;
+    padding-bottom: 400px;
+}
+
+.img-pic {
+    /*height: 200px;*/
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   NAV BAR -    -   -   -   -   -   -   -   -   -  -  */
+
+.header {
+    Top: 0px;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.upperhalf {
+    height: 44px;
+    background: #004165;
+}
+
+.lowerhalf {
+    height: 44px;
+    background: #007dba;
+}
+
+.header-darkblue {
+    background-color: #004165!important;
+    padding-right: 20px;
+}
+
+.header-whitetext {
+    color: #ddf!important;
+    font-family: myriad-pro!important;
+}
+
+.header-whitetext:hover {
+    color: white!important;
+    font-family: myriad-pro!important;
+}
+
+.footer-blue {
+    background-color: #007dba!important;
+    text-align: center;
+    color: white;
+    font-size: 10px;
+    height: 15px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: #007dba;
+    border-top: 3px solid white;
+    z-index: 100;
+}
+
+.footer-content {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    margin: -15px 127px;
+    font-size: 0.546em;
+    line-height: 13px;
+    text-align: center;
+    color: #fff;
+}
+
+.div-sticky-panel {
+    background-color: #007dba;
+    position: fixed;
+    top: 44px;
+    width: 100%;
+    z-index: 100;
+}
+
+.navbar-brand {
+    font-family: 'proxima_novabold'!important;
+    letter-spacing: .1em;
+    float: left;
+    font-size: 16px;
+    margin: 0px 0 0 20px;
+    color: White!important;
+}
+
+.anz-logo {
+    float: left;
+    width: 110px;
+    height: 44px;
+    margin: 0px 0px 0px 150px;
+}
+
+a {
+    color: #ddf;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+#nav2 {
+    float: left;
+    font-family: Calibri;
+    font-size: 14px;
+    margin: 0 140px;
+}
+
+#nav2 ul {
+    margin: 12px 0px;
+    padding: 0;
+}
+
+#nav2 ul li {
+    list-style-type: none;
+    display: inline;
+    margin: 0 10px
+}
+
+#nav2 li {
+    list-style: none !important;
+    margin-top: 5px;
+    margin-right: 30px;
+}
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   SEARCH BAR -    -   -   -   -   -   -   -   -   -  -  */
+
+#custom-search-input {
+    margin: 0;
+    margin-top: 8px;
+    padding: 0;
+}
+
+#custom-search-input .search-query {
+    padding-right: 3px;
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 9px;
+    height: 28px;
+    border: none;
+}
+
+#custom-search-input button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #007dba;
+}
+
+.search-query:focus+button {
+    z-index: 3;
+}
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   NAV BAR -    -   -   -   -   -   -   -   -   -   */
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   IMAGES UNDER NAV BAR -    -   -   -   -   -   -   -   -   -   */
+
+.evaluation-head {
+    background: url(../images/evaluate2.jpg) center center;
+}
+
+.submission-head {
+    background: url(../images/submit.jpg) center center;
+}
+
+.implementation-head {
+    background: url(../images/implement2.jpg) center center;
+}
+
+.submission-head,
+.evaluation-head,
+.implementation-head {
+    background-size: cover;
+    height: 75px;
+    margin-top: 165px;
+    margin-bottom: 30px;
+    position: static;
+    width: 100%;
+    border-bottom: 3px solid white;
+    z-index: 100;
+    text-align: right;
+}
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   IMAGES UNDER NAV BAR -    -   -   -   -   -   -   -   -   -   */
+
+.banner-text {
+    font-family: 'proxima_novabold'!important;
+    font-size: 28px;
+    color: #ffffff;
+    margin-right: 100px;
+    margin-top: -190px
+}
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   IMAGES UNDER NAV BAR -    -   -   -   -   -   -   -   -   -   */
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   LANDING PAGE -    -   -   -   -   -   -   -   -   -   */
+
+.listitemnav {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #004165;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-top: 220px;
+}
+
+.homepostertext {
+    margin-top: -300px;
+    margin-bottom: -50px;
+    position: relative;
+    z-index: 1;
+    left: 200px;
+    width: 30%;
+    text-align: center;
+    display: inline-block;
+    padding: 0, 1, 0, 0em;
+    float: left;
+    color: white;
+}
+
+.titledesc {
+    margin: 0 27px;
+    font-size: 20px;
+    line-height: 1.3;
+    color: white;
+}
+
+.titledesc-small {
+    font-size: 16px!important;
+}
+
+.titlebutt {
+    margin-top: 40px;
+}
+
+.spacer {
+    margin-top: 200px;
+}
+
+.liststyle {
+    font-size: 14px;
+    font-family: myriad-pro;
+}
+
+.listhover {
+    font-size: 14px;
+    font-family: myriad-pro;
+    color: white;
+    background-color: grey;
+}
+
+.div90 {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   LANDING PAGE -    -   -   -   -   -   -   -   -   -   */
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   FONTS -    -   -   -   -   -   -   -   -   -   */
+
+.proxy-font {
+    font-family: 'proxima_novabold'!important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'myriad-pro'!important;
+}
+
+p,
+div {
+    font-family: 'myriad-pro'!important;
+}
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   FORM CONTROLS -    -   -   -   -   -   -   -   -   -   */
+
+.blue-background {
+    background: #d9e6ec;
+}
+
+.form-control {
+    font-size: 16px !important;
+}
+
+.form-label {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #555 !important;
+    margin-bottom: 0px!important;
+}
+
+.form-label-smaller {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #555 !important;
+    margin-bottom: 0px!important;
+}
+
+.multiline {
+    height: 150px!important;
+    vertical-align: text-top;
+}
+
+.multilinelarge {
+    height: 400px!important;
+    vertical-align: text-top;
+}
+
+#form1 {
+    padding: 150px 0px;
+}
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   FORM CONTROLS -    -   -   -   -   -   -   -   -   -   */
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   TAB CONTROLS -    -   -   -   -   -   -   -   -   -   */
+
+.multitab-headings {
+    background-color: #eee!important;
+    font-size: 20px;
+}
+
+.multitabtab-headings:hover {
+    background: #d9e6ec!important;
+}
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   TAB CONTROLS -    -   -   -   -   -   -   -   -   -   */
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   FORM CONTROLS -    -   -   -   -   -   -   -   -   -   */
+
+.rblHidden input[type="checkbox"] {
+    margin-left: 5px;
+    display: none;
+}
+
+.rblHidden label {
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 12px !important;
+    font-family: 'myriad-pro'!important;
+    outline: 1px solid grey;
+    background: #faebcc;
+    margin-right: 5px;
+    color: #555;
+}
+
+.rbl input[type="checkbox"] {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 6px;
+}
+
+.rbl label {
+    margin-left: 20px;
+    font-size: 14px !important;
+}
+
+.input-size {
+    width: 150px;
+    height: 150px;
+    overflow-y: auto;
+}
+
+.nav {
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+
+/*Data-Grid*/
+
+.mydatagrid,
+.prioritydatagrid {
+    width: 95%;
+    border: none;
+    min-width: 80%;
+}
+
+.gvheader {
+    border: none 0px transparent;
+    height: 25px;
+    text-align: Left;
+    font-size: 13px;
+}
+
+.rows {
+    background-color: #fff;
+    font-size: 11px;
+    color: #000;
+    min-height: 25px;
+    text-align: Left;
+    border: none 0px transparent;
+}
+
+.rows:hover {
+    background-color: #c9e3f5;
+    color: #000;
+    text-align: Left;
+    border-left: 5px solid #004165;
+    border-right: 5px solid #004165;
+}
+
+.selectedrow {
+    background-color: #c9e3f5;
+    color: #000;
+    font-weight: bold;
+    text-align: Left;
+}
+
+.mydatagrid td {
+    padding: 5px;
+}
+
+.prioritydatagrid td {
+    padding: 20px;
+    border-top: .1px solid #004165;
+    border-bottom: .1px solid #004165;
+}
+
+.prioritydatagrid tr {
+    cursor: move;
+    background-color: #f2f2f2;
+}
+
+.mydatagrid th {
+    padding: 5px;
+}
+
+.prioritydatagrid th {
+    padding: 10px;
+    border-top: .1px solid #004165;
+    border-bottom: .1px solid #004165;
+    text-align: center;
+    background-color: #007dba;
+}
+
+.hiddencol {
+    display: none;
+}
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   PAGE Background Colours -    -   -   -   -   -   -   -   -   -   */
+
+.submit-background {
+    background: #d9e6ec;
+}
+
+.evaluate-background {
+    background: #f2efcc;
+}
+
+
+/* -    -   -   -   -   -   -   -   -   -   -   PAGE Background Colours -    -   -   -   -   -   -   -   -   -   */
+
+.btn-primary,
+.btn-sm {
+    border: none;
+}
+
+.error {
+    height: 80px;
+}
+
+
+/* fallback */
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v50/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+#lstUsernames ul {
+    margin: 12px 0px;
+    padding: 0;
+}
+
+#lstUsernames ul li {
+    list-style-type: none;
+    display: inline;
+    margin: 0 10px;
+    float: left;
+}

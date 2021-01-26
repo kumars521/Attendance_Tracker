@@ -1,0 +1,601 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>
+	BAS
+</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" /><link href="css/bootstrap_override.css" rel="stylesheet" />
+    
+
+    <!-- Google fonts and icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" /><link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="scripts/formhandler.js" type="text/javascript"></script>
+    <script src="scripts/bootstrap.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        function doClick(buttonName, e) {//the purpose of this function is to allow the enter key to point to the correct button to click.
+            var key;
+
+            if (window.event)
+                key = window.event.keyCode;     //IE
+            else
+                key = e.which;     //firefox
+
+            if (key == 13) {
+                //Get the button the user wants to have clicked
+                var btn = document.getElementById(buttonName);
+                if (btn != null) { //If we find the button click it
+                    btn.click();
+                    event.keyCode = 0
+                }
+            }
+
+        }
+    </script>
+
+    
+    </head>
+<body>
+    <form method="post" action="./Reporting.aspx" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/site/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZNBqdtsdRMtSy_Y35hBiH9-29f9naWWmxKDceXIVU97-SmmRV3zLmVUhYJuUHSQMfA2&amp;t=637100573640000000" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var __cultureInfo = {"name":"en-AU","numberFormat":{"CurrencyDecimalDigits":2,"CurrencyDecimalSeparator":".","IsReadOnly":true,"CurrencyGroupSizes":[3],"NumberGroupSizes":[3],"PercentGroupSizes":[3],"CurrencyGroupSeparator":",","CurrencySymbol":"$","NaNSymbol":"NaN","CurrencyNegativePattern":1,"NumberNegativePattern":1,"PercentPositivePattern":0,"PercentNegativePattern":0,"NegativeInfinitySymbol":"-Infinity","NegativeSign":"-","NumberDecimalDigits":2,"NumberDecimalSeparator":".","NumberGroupSeparator":",","CurrencyPositivePattern":0,"PositiveInfinitySymbol":"Infinity","PositiveSign":"+","PercentDecimalDigits":2,"PercentDecimalSeparator":".","PercentGroupSeparator":",","PercentSymbol":"%","PerMilleSymbol":"‰","NativeDigits":["0","1","2","3","4","5","6","7","8","9"],"DigitSubstitution":1},"dateTimeFormat":{"AMDesignator":"AM","Calendar":{"MinSupportedDateTime":"\/Date(-62135596800000)\/","MaxSupportedDateTime":"\/Date(253402261199999)\/","AlgorithmType":1,"CalendarType":1,"Eras":[1],"TwoDigitYearMax":2029,"IsReadOnly":true},"DateSeparator":"/","FirstDayOfWeek":1,"CalendarWeekRule":0,"FullDateTimePattern":"dddd, d MMMM yyyy h:mm:ss tt","LongDatePattern":"dddd, d MMMM yyyy","LongTimePattern":"h:mm:ss tt","MonthDayPattern":"dd MMMM","PMDesignator":"PM","RFC1123Pattern":"ddd, dd MMM yyyy HH\u0027:\u0027mm\u0027:\u0027ss \u0027GMT\u0027","ShortDatePattern":"d/MM/yyyy","ShortTimePattern":"h:mm tt","SortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss","TimeSeparator":":","UniversalSortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd HH\u0027:\u0027mm\u0027:\u0027ss\u0027Z\u0027","YearMonthPattern":"MMMM yyyy","AbbreviatedDayNames":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"ShortestDayNames":["Su","Mo","Tu","We","Th","Fr","Sa"],"DayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"AbbreviatedMonthNames":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",""],"MonthNames":["January","February","March","April","May","June","July","August","September","October","November","December",""],"IsReadOnly":true,"NativeCalendarName":"Gregorian Calendar","AbbreviatedMonthGenitiveNames":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",""],"MonthGenitiveNames":["January","February","March","April","May","June","July","August","September","October","November","December",""]},"eras":[1,"A.D.",null,0]};//]]>
+</script>
+
+<script src="/site/ScriptResource.axd?d=NJmAwtEo3Ipnlaxl6CMhvs8wq5j-hoex0rHAf58HQaT5f0j_VbKFN-9NzcQ_2-V9oO0-3rVpBU8tGa3JAz7MsEFVHKB2m32gk_7CSGSd7ekWPWf7cLkz8dP-Ph6E91gjME8zqXHs8ndgx0yv3JIbpKd3-2mbj_nVtwhLi595DN41&amp;t=ffffffffecf19baa" type="text/javascript"></script>
+<script src="/site/ScriptResource.axd?d=dwY9oWetJoJoVpgL6Zq8OFyFMB7c5J4ZDq7nn8tNHGr9PA8WU8AKSZSi57840rnMKEstpC3ZM9qcp4OCpyCl5xBkfubd3HJ4CEo8kAUA_h9tKeWZDMyRhD5wWtqa47psWn9uxVLtvm-1eaZi501YWqZpjQ7uHh47j3OgmuTgjcc1&amp;t=ffffffffecf19baa" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="7B6C54F8" />
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ajaxSM', 'form1', ['tctl00$BAScph$upBenEffException','upBenEffException'], [], ['ctl00$BAScph$grdWR','grdWR'], 90, 'ctl00');
+//]]>
+</script>
+
+        <header class="header">
+
+            <div class="upperhalf">
+                <div class="col-md-9">
+                    <div class="anz-logo">
+
+                        <?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 50">
+        <g>
+        	<g>
+        		<defs>
+        			<rect id="SVGID_1_" width="97.522" height="44.417"/>
+        		</defs>
+        		<clipPath id="SVGID_2_">
+        			<use xlink:href="#SVGID_1_"  overflow="visible"/>
+        		</clipPath>
+        		<path clip-path="url(#SVGID_2_)" fill="#FFFFFF" d="M43.09,18.175l6.664,0.002c0,0-1.374,1.79-2.878,3.749h7.772
+        			c1.381-1.81,2.645-3.457,2.831-3.701c0.876-1.145,1.08-2.166,1.08-3.072V13.86c0-0.655-0.405-1.017-1.021-1.017H43.09
+        			c-0.6,0-0.997,0.327-0.997,0.998v3.335C42.093,17.847,42.49,18.175,43.09,18.175"/>
+        		<path clip-path="url(#SVGID_2_)" fill="#FFFFFF" d="M0.155,31.145c-0.185,0.305-0.185,0.623-0.075,0.836
+        			c0.128,0.248,0.41,0.385,0.722,0.385l4.733,0.004c0.598,0,1.128-0.318,1.429-0.795l5.218-8.287H5.097
+        			C2.664,27.156,0.21,31.053,0.155,31.145"/>
+        		<path clip-path="url(#SVGID_2_)" fill="#FFFFFF" d="M19.611,23.283h-6.628c0.162,0.92,1.391,7.756,1.464,8.153
+        			c0.111,0.623,0.496,0.929,1.068,0.929h4.558c0.421,0,0.632-0.127,0.824-0.365c0.135-0.166,0.191-0.414,0.129-0.781L19.611,23.283z
+        			"/>
+        		<path clip-path="url(#SVGID_2_)" fill="#FFFFFF" d="M40.021,13.838c0-0.672-0.401-0.992-0.989-0.992h-4.037
+        			c-0.59,0-0.991,0.32-0.991,0.992l-0.004,7.571l-3.818-6.808c-0.758-1.249-2.046-1.727-3.536-1.758l-2.974,0.003
+        			c-0.597,0-0.998,0.32-0.998,0.992v8.089h5.001l0.766,1.356h-5.767v8.09c0,0.671,0.401,0.992,0.998,0.992H27.7
+        			c0.598,0,0.996-0.321,0.996-0.992v-7.617l3.845,6.855c0.759,1.248,2.046,1.722,3.537,1.754h2.953c0.588,0,0.989-0.321,0.989-0.992
+        			v-8.09h-4.962l-0.769-1.356h5.73V13.838z"/>
+        		<path clip-path="url(#SVGID_2_)" fill="#FFFFFF" d="M17.918,13.79c-0.113-0.639-0.539-0.944-1.1-0.944h-1.975
+        			c-2.063,0-3.871,1.081-4.892,2.715c0,0-1.883,2.998-4.003,6.368h13.42L17.918,13.79z"/>
+        		<path clip-path="url(#SVGID_2_)" fill="#FFFFFF" d="M57.736,27.036H50.74c0,0,1.366-1.788,2.867-3.753h-7.767
+        			c-1.419,1.848-2.694,3.508-2.769,3.61c-1.035,1.433-1.138,2.884-1.138,3.889v0.566c0,0.657,0.406,1.014,1.019,1.014h14.783
+        			c0.595,0,0.993-0.32,0.993-0.992v-3.341C58.729,27.361,58.331,27.036,57.736,27.036"/>
+        	</g>
+        	<g>
+        		<defs>
+        			<rect id="SVGID_3_" x="54.9" y="0.679" width="42.593" height="40.421"/>
+        		</defs>
+        		<clipPath id="SVGID_4_">
+        			<use xlink:href="#SVGID_3_"  overflow="visible"/>
+        		</clipPath>
+        		<g transform="matrix(1 0 0 1 3.627214e-006 6.090886e-008)" clip-path="url(#SVGID_4_)">
+
+        				<image overflow="visible" width="55" height="52" xlink:href="data:image/png;base64,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" transform="matrix(0.7744 0 0 0.7773 54.9004 0.6787)">
+        			</image>
+        		</g>
+        	</g>
+        	<g>
+        		<defs>
+        			<path id="SVGID_5_" d="M63.554,21.522c-1.237,0.185-1.839,0.6-2.181,0.88c-0.559,0.461-0.957,1.275-0.347,2.115
+        				c0.617,0.852,6.284,7.516,7.788,9.24c0.219,0.253,0.678,0.591,1.269,0.471c0.745-0.16,1.586-1.031,1.919-1.668
+        				c0.241-0.457,0.403-0.822,0.561-1.49c0.539-2.34-0.027-4.588-1.109-6.076c-1.034-1.412-2.528-2.487-3.736-2.963
+        				c-0.717-0.286-1.808-0.593-3.061-0.593C64.298,21.438,63.93,21.465,63.554,21.522 M84.64,22.031
+        				c-1.206,0.476-2.705,1.551-3.731,2.963c-1.083,1.488-1.653,3.736-1.112,6.076c0.153,0.668,0.319,1.033,0.563,1.49
+        				c0.329,0.637,1.17,1.508,1.916,1.668c0.588,0.12,1.05-0.218,1.268-0.471c1.504-1.725,7.176-8.389,7.789-9.24
+        				c0.606-0.84,0.211-1.654-0.344-2.115c-0.343-0.28-0.95-0.696-2.18-0.88c-0.377-0.057-0.752-0.084-1.109-0.084
+        				C86.444,21.438,85.357,21.745,84.64,22.031 M67.803,13.919c0,1.971,0.683,3.79,1.825,5.221c1.487,1.784,3.335,2.426,4.079,2.414
+        				c1.157-0.022,0.946-0.952,0.857-1.342c-0.081-0.344-0.292-0.811-0.575-1.231c-0.429-0.636-0.724-1.343-0.724-2.252
+        				c0.002-1.621,1.544-2.791,2.914-2.791s2.91,1.17,2.912,2.791c0,0.909-0.296,1.616-0.722,2.252
+        				c-0.281,0.42-0.495,0.887-0.578,1.231c-0.089,0.39-0.297,1.32,0.856,1.342c0.747,0.012,2.592-0.63,4.078-2.414
+        				c1.143-1.431,1.83-3.25,1.83-5.221c0-4.629-3.751-8.377-8.377-8.377C71.549,5.542,67.803,9.29,67.803,13.919"/>
+        		</defs>
+        		<clipPath id="SVGID_6_">
+        			<use xlink:href="#SVGID_5_"  overflow="visible"/>
+        		</clipPath>
+
+        			<radialGradient id="SVGID_7_" cx="-389.7876" cy="277.5479" r="3.2573" gradientTransform="matrix(0.0188 10.7848 7.9934 -0.014 -2135.0676 4212.8237)" gradientUnits="userSpaceOnUse">
+        			<stop  offset="0" style="stop-color:#0CB1E3"/>
+        			<stop  offset="0.17" style="stop-color:#0BA5DE"/>
+        			<stop  offset="0.65" style="stop-color:#15A0DB"/>
+        			<stop  offset="0.785" style="stop-color:#0E77A7"/>
+        			<stop  offset="0.9288" style="stop-color:#084F75"/>
+        			<stop  offset="1" style="stop-color:#054062"/>
+        		</radialGradient>
+        		<polygon clip-path="url(#SVGID_6_)" fill="url(#SVGID_7_)" points="91.938,5.487 91.99,34.349 60.416,34.405 60.368,5.542 		"/>
+        	</g>
+        	<g>
+        		<defs>
+        			<path id="SVGID_8_" d="M63.554,21.522c-1.237,0.185-1.839,0.6-2.181,0.881c-0.559,0.46-0.957,1.274-0.347,2.114
+        				c0.617,0.852,6.284,7.516,7.788,9.24c0.219,0.252,0.678,0.59,1.269,0.471c0.745-0.16,1.586-1.031,1.919-1.668
+        				c0.241-0.457,0.403-0.822,0.561-1.49c0.539-2.34-0.027-4.588-1.109-6.076c-1.034-1.412-2.528-2.487-3.736-2.963
+        				c-0.717-0.286-1.808-0.593-3.061-0.593C64.298,21.438,63.93,21.465,63.554,21.522 M84.64,22.031
+        				c-1.206,0.476-2.705,1.551-3.731,2.963c-1.083,1.488-1.653,3.736-1.112,6.076c0.153,0.668,0.319,1.033,0.563,1.49
+        				c0.329,0.637,1.17,1.508,1.916,1.668c0.588,0.119,1.05-0.219,1.268-0.471c1.504-1.725,7.176-8.389,7.789-9.24
+        				c0.606-0.84,0.211-1.654-0.344-2.114c-0.343-0.282-0.95-0.697-2.18-0.881c-0.377-0.057-0.752-0.084-1.109-0.084
+        				C86.444,21.438,85.357,21.745,84.64,22.031 M67.803,13.919c0,1.971,0.683,3.79,1.825,5.221c1.487,1.784,3.335,2.426,4.079,2.414
+        				c1.157-0.023,0.946-0.952,0.857-1.342c-0.081-0.343-0.292-0.811-0.575-1.23c-0.429-0.636-0.724-1.342-0.724-2.252
+        				c0.002-1.621,1.544-2.791,2.914-2.791s2.91,1.17,2.912,2.791c0,0.91-0.296,1.616-0.722,2.252c-0.281,0.42-0.495,0.887-0.578,1.23
+        				c-0.089,0.391-0.297,1.319,0.856,1.342c0.747,0.012,2.592-0.63,4.078-2.414c1.143-1.431,1.83-3.25,1.83-5.221
+        				c0-4.629-3.751-8.377-8.377-8.377C71.549,5.542,67.803,9.29,67.803,13.919"/>
+        		</defs>
+        		<clipPath id="SVGID_9_">
+        			<use xlink:href="#SVGID_8_"  overflow="visible"/>
+        		</clipPath>
+        		<g opacity="0.4" clip-path="url(#SVGID_9_)">
+        			<g>
+        				<defs>
+        					<rect id="SVGID_10_" x="54.905" y="-0.278" width="42.591" height="35.688"/>
+        				</defs>
+        				<clipPath id="SVGID_11_">
+        					<use xlink:href="#SVGID_10_"  overflow="visible"/>
+        				</clipPath>
+        				<g clip-path="url(#SVGID_11_)">
+        					<defs>
+        						<rect id="SVGID_12_" x="54.905" y="-0.278" width="42.591" height="35.688"/>
+        					</defs>
+        					<clipPath id="SVGID_13_">
+        						<use xlink:href="#SVGID_12_"  overflow="visible"/>
+        					</clipPath>
+        					<g transform="matrix(1 0 0 1 3.621490e-007 5.794119e-009)" clip-path="url(#SVGID_13_)">
+
+        							<image overflow="visible" width="55" height="46" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAAwCAYAAACrF9JNAAAACXBIWXMAAA5NAAAOTQFG1WgJAAAA
+        GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABI1JREFUeNrsWllrE1EUnpmkq1Kw
+        VupWrLjg8lJRVPCh9FVFf6zii6D1wdaCCm4UF8S6VKupW7ekaTJ+x343nNxMkklzm0Uz8DFJM3Pv
+        Ofc799zvHPW8/+DyGzVRGIY+5wt93w/t722/kuIQUPK5bZkkQ8JOzey2hZM02otystJv/8yerHVR
+        2trJZiQcv1FMAYF2TP227UwmG7SQ+4CDwDCc68E9DywDn4D3wAr/1tpMwviAjJlx5fspYAI4DHQD
+        q8Bv/jbIRZbvD4Bp4BvHKGG+6U6aY8MYBgwBl4ExYB54CLwBUvw9AXQBB4DTwBkgDdwCngHrarx8
+        vY5uxzk5itt1QMJyUoyGkWtV3tmL2zhwku/IoqxQGdXNqOtzUoy9AuSA28AC91pVI/FuL24XyP40
+        GU27SEpJhw6Kkee57+6Kg9oxfXQYw63smwHu8fMJhvYcnsvVa1vgkMhRJheTQHzjBEPOg8Fmf/3V
+        r/KZMFHlMwnJ+4eAnS60buCIRXFOQvUt8FWxFeqsi88JMdo4RgeMEyarZoFH3NMDYmOrhOsAjfsA
+        rKkDXx8roQk9JeLD4rUqZOmf3M87mIVzrRCu/Qyx1aKshvCMUjQqRMtdG3TS43HTEkxmaFh2K6ne
+        ZjbcjN8097hnQrzZTq4ypDbsc20rxnEvrzIR1Z1dXSkeWaycnWi2csZZ6knG3VBh33Itj8CqNJrW
+        KnEpBgJ90KsjoeZQdb3gLsWArWRih2oUYyoK6mYz6YhFP0KqefWIa5eMJssYHFnilHEmrGBo3rBU
+        idVy8yitG1jzhKqFEj+7ctXNoHk6ElgDhlENqKi+jRovH6MCCSwZ6EXMZ5wtGjPO1vDLsFQYzHKm
+        aBLNerlVriVkreNHjxsaeWeio5buQdIqgzYFZOlAeiJBH36X+xL7M/aZWBDkMZnUi2Xmyysieigd
+        k3g2TzW0ZmrVmsSADhWv+N8tRICfY0ErTaleKpEs677nwBPgiy6Sa+2rWtEk4vw45zwiZRdlXpYL
+        OwtMSSMMz2erOmmHlDXZHny+xkJ2nr2aX9Sqw8AIa791Tnof+FFPbxVzSgPsKjt8KZZwC+zwCav7
+        uQBi9w3gKebJxE08mgETqmMcUGq8d2RQZz65y0KcBS6x3LoJfFasxhUTXez1jDMqJrmo6YjENshO
+        hGy5Kfz9e9xwLUkYwG6ytFKpFcHnR9jjSdDRubi6k/p3gov6GJjBu8tljpYEF7AP2AUs4tn0dgt0
+        HQVDDDVJDHck3CKiI4zo/1ykgzPACy6sk+66E1lHtkxrI0UWZexjXO0S+WdJOem/HmUrcpbJpdD3
+        aYkeDx3dUDVkimxIVh4Qpk0DSzFjHOhigvkIvGaPNrT1cCtoV62MjIh4SRb7Oc96FKM8juSdV5I9
+        bVnJki1semfAJBcaaA7/DL4vKueLNKrap908kpZM4S13Oue5KJhdllra2QQdWIpg0E58pjuXscou
+        J/vRZXb1I7Rmgiz18BDP2fuL7/Xya840wrhPjU6NJQ233clKR0q12rJKWdXw/1/QuTpX5+pcnatz
+        qeuPAAMAI9MhbJ63pjoAAAAASUVORK5CYII=" transform="matrix(0.7744 0 0 0.7758 54.9053 -0.2783)">
+        						</image>
+        					</g>
+        				</g>
+        			</g>
+        		</g>
+        	</g>
+        	<g display="none">
+        		<defs>
+        			<rect id="SVGID_14_" x="-0.029" y="-0.415" width="97.522" height="44.417"/>
+        		</defs>
+        		<clipPath id="SVGID_15_" display="inline">
+        			<use xlink:href="#SVGID_14_"  overflow="visible"/>
+        		</clipPath>
+        		<path display="inline" clip-path="url(#SVGID_15_)" fill="#FFFFFF" d="M50.107,44.002c0.511-0.113,0.747-0.371,0.747-0.916V42.48
+        			h-0.621v0.701h0.241c0.03,0.291-0.11,0.469-0.45,0.59L50.107,44.002z"/>
+        		<path display="inline" clip-path="url(#SVGID_15_)" fill="#FFFFFF" d="M46.244,42.7v-3.692h1.098c1.18,0,1.941,0.814,1.941,1.848
+        			v0.012c0,1.031-0.762,1.833-1.941,1.833H46.244z M45.713,43.187h1.629c1.472,0,2.487-1.021,2.487-2.331v-0.014
+        			c0-1.313-1.016-2.32-2.487-2.32h-1.629V43.187z M41.491,43.187h3.166V42.7H42.02v-4.179h-0.528V43.187z M36.978,40.901v-1.894
+        			h1.448c0.757,0,1.193,0.35,1.193,0.922v0.012c0,0.6-0.498,0.96-1.199,0.96H36.978z M36.451,43.187h0.526v-1.813h1.325h0.016
+        			l1.359,1.813h0.648l-1.441-1.905c0.734-0.133,1.273-0.588,1.273-1.357v-0.013c0-0.37-0.138-0.693-0.36-0.923
+        			c-0.298-0.291-0.759-0.467-1.333-0.467h-2.014V43.187z M32.797,42.779c-1.071,0-1.844-0.869-1.844-1.924v-0.014
+        			c0-1.059,0.758-1.913,1.832-1.913c1.068,0,1.847,0.866,1.847,1.927v0.012C34.632,41.924,33.869,42.779,32.797,42.779
+        			 M32.785,43.267c1.424,0,2.395-1.126,2.395-2.411c0.01-0.006,0.01-0.006,0-0.014c0-1.287-0.955-2.396-2.383-2.396
+        			c-1.425,0-2.396,1.122-2.396,2.41v0.012C30.4,42.152,31.36,43.267,32.785,43.267 M24.581,43.219h0.441l1.288-3.785l1.288,3.785
+        			h0.448l1.67-4.697h-0.554l-1.341,3.885l-1.283-3.898h-0.432l-1.288,3.898l-1.339-3.885h-0.578L24.581,43.219z M16.682,40.901
+        			v-1.894h1.442c0.761,0,1.2,0.35,1.2,0.922v0.012c0,0.6-0.502,0.96-1.204,0.96H16.682z M16.152,43.187h0.529v-1.813h1.322h0.018
+        			l1.358,1.813h0.648l-1.441-1.905c0.737-0.133,1.277-0.588,1.277-1.357v-0.013c0-0.37-0.134-0.693-0.364-0.923
+        			c-0.296-0.291-0.758-0.467-1.332-0.467h-2.016V43.187z M12.736,43.26c1.173,0,1.956-0.707,1.956-2.066v-2.672h-0.527v2.713
+        			c0,1.021-0.552,1.537-1.417,1.537c-0.892,0-1.43-0.564-1.43-1.572v-2.678H10.79v2.713C10.79,42.553,11.579,43.26,12.736,43.26
+        			 M7.207,42.779c-1.072,0-1.85-0.869-1.85-1.924v-0.014c0-1.059,0.76-1.913,1.83-1.913c1.071,0,1.851,0.866,1.851,1.927v0.012
+        			C9.038,41.924,8.273,42.779,7.207,42.779 M7.188,43.267c1.428,0,2.398-1.126,2.398-2.411c0.006-0.006,0.006-0.006,0-0.014
+        			c0-1.287-0.958-2.396-2.379-2.396c-1.43,0-2.399,1.122-2.399,2.41v0.012C4.808,42.152,5.766,43.267,7.188,43.267 M1.959,43.187
+        			h0.533v-1.854l1.947-2.811H3.823l-1.592,2.334l-1.582-2.334H0.009l1.95,2.817V43.187z"/>
+        		<path display="inline" clip-path="url(#SVGID_15_)" fill="#FFFFFF" d="M89.143,43.149h0.537v-1.852l1.945-2.812h-0.613
+        			l-1.595,2.331l-1.579-2.331h-0.64l1.944,2.818V43.149z M83.833,41.445l1.066-2.381l1.064,2.381H83.833z M82.523,43.149h0.542
+        			l0.557-1.231h2.549l0.551,1.231h0.566l-2.132-4.696h-0.499L82.523,43.149z M77.152,43.182h0.441l1.289-3.783l1.289,3.783h0.445
+        			l1.679-4.695h-0.559L80.4,42.372l-1.286-3.898H78.68l-1.283,3.898l-1.34-3.886h-0.579L77.152,43.182z M69.255,40.861v-1.889h1.441
+        			c0.763,0,1.2,0.348,1.2,0.92v0.012c0,0.602-0.501,0.957-1.205,0.957H69.255z M68.727,43.149h0.528v-1.811h1.323h0.016l1.357,1.811
+        			H72.6l-1.438-1.906c0.734-0.134,1.273-0.585,1.273-1.358v-0.012c0-0.369-0.134-0.694-0.364-0.922
+        			c-0.295-0.292-0.753-0.465-1.331-0.465h-2.014V43.149z M65.309,43.225c1.177,0,1.957-0.705,1.957-2.066v-2.672h-0.528v2.713
+        			c0,1.017-0.553,1.535-1.412,1.535c-0.896,0-1.434-0.566-1.434-1.57v-2.678h-0.529v2.713C63.362,42.52,64.152,43.225,65.309,43.225
+        			 M59.779,42.741c-1.07,0-1.85-0.865-1.85-1.924v-0.013c0-1.059,0.763-1.91,1.834-1.91c1.069,0,1.847,0.863,1.847,1.923v0.012
+        			C61.61,41.889,60.848,42.741,59.779,42.741 M59.764,43.229c1.425,0,2.395-1.124,2.395-2.412c0.007-0.007,0.007-0.007,0-0.013
+        			c0-1.285-0.959-2.398-2.379-2.398c-1.427,0-2.398,1.127-2.398,2.411v0.012C57.381,42.117,58.34,43.229,59.764,43.229
+        			 M54.531,43.149h0.532v-1.852l1.949-2.812h-0.615l-1.596,2.331l-1.578-2.331h-0.639l1.946,2.818V43.149z"/>
+        	</g>
+        </g>
+        </svg>
+
+                    </div>
+
+                    <p class="navbar-brand">CSO OPERATIONAL EXCELLENCE</p>
+                </div>
+                <div class="col-md-3">
+                    <div id="custom-search-input">
+                        <div class="input-group col-md-7" style="float: right;">
+                            <input name="ctl00$txMasterSearch" type="text" id="txMasterSearch" class="search-query form-control" Placeholder="Search WR ID" onKeyPress="doClick(&#39;btnMasterSearch&#39;,event)" />
+                            <span class="input-group-btn">
+                                <button onclick="__doPostBack('ctl00$btnMasterSearch','')" id="btnMasterSearch" class="btn btn-danger" type="button">
+                                    <span class=" glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="col-md-5"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="lowerhalf">
+
+                <div id="nav2">
+                    <ul>
+                        <li><a href="create.aspx">Raise a request</a></li>
+                        <li><a href="queue.aspx">Work request queue</a></li>
+                        <li><a href="prioritise.aspx">Prioritise requests</a></li>
+                        <li><a href="Reporting.aspx">Reporting</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <div>
+            
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-md-12">
+                <div class="container-fluid">
+                    <div class="col-md-12">
+                        
+                        <!DOCTYPE html>
+
+                        <html xmlns="http://www.w3.org/1999/xhtml">
+                        <body>
+                            <div class="well well-md">
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-3">
+                                        <input type="submit" name="ctl00$BAScph$btnException" value="Exception Report (Benefit/Effort)" id="btnException" class="btn btn-primary btn-block btn-lg" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="button" name="ctl00$BAScph$btnVolTypeStatus" value="WIP/Volume/Type/Status" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$btnVolTypeStatus&#39;,&#39;&#39;)" id="btnVolTypeStatus" class="btn btn-primary btn-block btn-lg" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="submit" name="ctl00$BAScph$btnBenefit" value="Benefit &amp; Effort" id="btnBenefit" class="btn btn-primary btn-block btn-lg" />
+                                    </div>
+                                    <div class="col-md-2"></div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div id="pbFilter">
+	
+                                
+                                <!--Filters-->
+                                <div class="row">
+                                    <label for="lstUsernames" class="form-label">&nbsp &nbsp Filter - Assigned To</label>
+                                    <div class="panel panel-default">
+                                        <div class="checkbox checkboxlist col-md-12">
+                                            <!--User Detail ID-->
+                                            <span id="lstUsernames" class="rbl" SelectionMode="Multiple"><input id="lstUsernames_0" type="checkbox" name="ctl00$BAScph$lstUsernames$lstUsernames_0" value="0" /><label for="lstUsernames_0">Unassigned</label><input id="lstUsernames_1" type="checkbox" name="ctl00$BAScph$lstUsernames$lstUsernames_1" value="2" /><label for="lstUsernames_1">Alex Pekarin</label><input id="lstUsernames_2" type="checkbox" name="ctl00$BAScph$lstUsernames$lstUsernames_2" value="12" /><label for="lstUsernames_2">Arkadi Pshenichner</label><input id="lstUsernames_3" type="checkbox" name="ctl00$BAScph$lstUsernames$lstUsernames_3" value="419" /><label for="lstUsernames_3">Babu Murugesan</label><input id="lstUsernames_4" type="checkbox" name="ctl00$BAScph$lstUsernames$lstUsernames_4" value="7" /><label for="lstUsernames_4">Daniel Egonidis</label><input id="lstUsernames_5" type="checkbox" name="ctl00$BAScph$lstUsernames$lstUsernames_5" value="8" /><label for="lstUsernames_5">Daniel Lightfoot</label><input id="lstUsernames_6" type="checkbox" name="ctl00$BAScph$lstUsernames$lstUsernames_6" value="297" /><label for="lstUsernames_6">Dung Nguyen</label><input id="lstUsernames_7" type="checkbox" name="ctl00$BAScph$lstUsernames$lstUsernames_7" value="131" /><label for="lstUsernames_7">Ian Cunningham</label><br /><input id="lstUsernames_8" type="checkbox" name="ctl00$BAScph$lstUsernames$lstUsernames_8" value="457" /><label for="lstUsernames_8">Jerry Liu</label><input id="lstUsernames_9" type="checkbox" name="ctl00$BAScph$lstUsernames$lstUsernames_9" value="9" /><label for="lstUsernames_9">Jonathan Troup</label><input id="lstUsernames_10" type="checkbox" name="ctl00$BAScph$lstUsernames$lstUsernames_10" value="427" /><label for="lstUsernames_10">Kirk Franklin</label><input id="lstUsernames_11" type="checkbox" name="ctl00$BAScph$lstUsernames$lstUsernames_11" value="374" /><label for="lstUsernames_11">Kothari Tanya</label><input id="lstUsernames_12" type="checkbox" name="ctl00$BAScph$lstUsernames$lstUsernames_12" value="381" /><label for="lstUsernames_12">Manojitha Gubbi Vani</label><input id="lstUsernames_13" type="checkbox" name="ctl00$BAScph$lstUsernames$lstUsernames_13" value="4" /><label for="lstUsernames_13">Matthew Skinner</label><input id="lstUsernames_14" type="checkbox" name="ctl00$BAScph$lstUsernames$lstUsernames_14" value="1" /><label for="lstUsernames_14">Simon Killingbeck</label><input id="lstUsernames_15" type="checkbox" name="ctl00$BAScph$lstUsernames$lstUsernames_15" value="5" /><label for="lstUsernames_15">Steven Hurwitz</label><br /><input id="lstUsernames_16" type="checkbox" name="ctl00$BAScph$lstUsernames$lstUsernames_16" value="13" /><label for="lstUsernames_16">Vivian Nguyen</label><br /></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+</div>
+                            <div class="row">
+                                <div class="panel panel-default">
+                                </div>
+                            </div>
+
+
+
+                            <div id="upBenEffException">
+	
+                                    <fieldset>
+                                        <input type="submit" name="ctl00$BAScph$btnPrevious50" value="Previous 50" id="btnPrevious50" class="btn-sm btn-primary" />
+                                        <input type="submit" name="ctl00$BAScph$btnNext50" value="Next 50" id="btnNext50" class="btn-sm btn-primary" />
+                                        <input type="submit" name="ctl00$BAScph$btnRefresh" value="Refresh" id="btnRefresh" class="btn-sm btn-primary" />
+                                        <div class="row">
+                                            <br />
+                                        </div>
+                                        
+                                        <span id="lbRowStart">1</span>
+                                        <span id="Label12"> to </span>
+                                        <span id="lbRowEnd">50</span>
+                                        <span id="Label11"> of </span>
+                                        <span id="lbRowNumTotal">232</span>
+                                        <span id="Label13"> updated as at: </span>
+                                        <span id="lbTime">9:30:53 PM</span>
+
+                                        <div>
+		<table class="mydatagrid" UseAccessible="true" id="grdWR">
+			<tr class="gvheader">
+				<th class="hidden" scope="col">&nbsp;</th><th scope="col">WR #</th><th scope="col">WR Title</th><th scope="col">WR Type</th><th scope="col">Status</th><th scope="col">Assigned To</th><th scope="col">Closed Date</th><th scope="col">Is Benefit Entered?</th><th scope="col">Is Effort Entered?</th><th scope="col">&nbsp;</th>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$0&#39;)">
+				<td class="hidden">1</td><td>37</td><td>BAS Platform date picker</td><td>BreakFix</td><td>Done</td><td>Steven Hurwitz</td><td>04-04-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$1&#39;)">
+				<td class="hidden">2</td><td>162</td><td>CAS Tool Reporting</td><td>BreakFix</td><td>Done</td><td>Anthony De Silva</td><td>23-05-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$2&#39;)">
+				<td class="hidden">3</td><td>226</td><td>Kudos raw data SSRS development</td><td>Minor Enhancement</td><td>Done</td><td>Daniel Egonidis</td><td>31-05-2018 0:00 AM</td><td>Not Entered</td><td>Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$3&#39;)">
+				<td class="hidden">4</td><td>138</td><td>AML TOOL </td><td>Minor Enhancement</td><td>Done</td><td>Matthew Skinner</td><td>21-06-2018 0:00 AM</td><td>Not Entered</td><td>Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$4&#39;)">
+				<td class="hidden">5</td><td>138</td><td>AML TOOL </td><td>Minor Enhancement</td><td>Done</td><td>Steven Hurwitz</td><td>21-06-2018 0:00 AM</td><td>Not Entered</td><td>Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$5&#39;)">
+				<td class="hidden">6</td><td>263</td><td>Breakfix for CCMS Access Request Form</td><td>BreakFix</td><td>Done</td><td>Adas Shileika</td><td>21-06-2018 0:00 AM</td><td>Entered</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$6&#39;)">
+				<td class="hidden">7</td><td>193</td><td>BAS Platform Email Banner OE</td><td>Adhoc</td><td>Done</td><td>Alex Pekarin</td><td>22-06-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$7&#39;)">
+				<td class="hidden">8</td><td>193</td><td>BAS Platform Email Banner OE</td><td>Adhoc</td><td>Done</td><td>Vivian Nguyen</td><td>22-06-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$8&#39;)">
+				<td class="hidden">9</td><td>64</td><td>Commercial Cards New Zealand </td><td>Project</td><td>Done</td><td>Alex Pekarin</td><td>22-06-2018 0:00 AM</td><td>Entered</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$9&#39;)">
+				<td class="hidden">10</td><td>64</td><td>Commercial Cards New Zealand </td><td>Project</td><td>Done</td><td>Vivian Nguyen</td><td>22-06-2018 0:00 AM</td><td>Entered</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$10&#39;)">
+				<td class="hidden">11</td><td>251</td><td>URGENT FX Macro fix required</td><td>BreakFix</td><td>Done</td><td>Anthony De Silva</td><td>26-06-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$11&#39;)">
+				<td class="hidden">12</td><td>251</td><td>URGENT FX Macro fix required</td><td>BreakFix</td><td>Done</td><td>Matthew Skinner</td><td>26-06-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$12&#39;)">
+				<td class="hidden">13</td><td>57</td><td>BAS Platform: Add new section - Reporting</td><td>Project</td><td>Done</td><td>Daniel Egonidis</td><td>04-07-2018 0:00 AM</td><td>Not Entered</td><td>Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$13&#39;)">
+				<td class="hidden">14</td><td>57</td><td>BAS Platform: Add new section - Reporting</td><td>Project</td><td>Done</td><td>Steven Hurwitz</td><td>04-07-2018 0:00 AM</td><td>Not Entered</td><td>Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$14&#39;)">
+				<td class="hidden">15</td><td>291</td><td>QC tool Admin access</td><td>Adhoc</td><td>Done</td><td>Simon Killingbeck</td><td>04-07-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$15&#39;)">
+				<td class="hidden">16</td><td>268</td><td>Updates to Existing Customer Comms</td><td>Minor Enhancement</td><td>Done</td><td>Nathan Street</td><td>09-07-2018 0:00 AM</td><td>Not Entered</td><td>Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$16&#39;)">
+				<td class="hidden">17</td><td>22</td><td>KYC Form Split-out for IIB</td><td>Minor Enhancement</td><td>Done</td><td>Alex Pekarin</td><td>11-07-2018 0:00 AM</td><td>Entered</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$17&#39;)">
+				<td class="hidden">18</td><td>227</td><td>MSV - Maintenance Form</td><td>Adhoc</td><td>Done</td><td>Steven Hastie</td><td>12-07-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$18&#39;)">
+				<td class="hidden">19</td><td>245</td><td>MSV Call Reasons - error message</td><td>BreakFix</td><td>Done</td><td>Steven Hastie</td><td>12-07-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$19&#39;)">
+				<td class="hidden">20</td><td>393</td><td>macro tool error</td><td>BreakFix</td><td>Done</td><td>Daniel Lightfoot</td><td>20-08-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$20&#39;)">
+				<td class="hidden">21</td><td>366</td><td>New product Approval Email</td><td>Minor Enhancement</td><td>Done</td><td>Nathan Street</td><td>31-08-2018 0:00 AM</td><td>Not Entered</td><td>Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$21&#39;)">
+				<td class="hidden">22</td><td>409</td><td>changing letter on aml tool</td><td>Minor Enhancement</td><td>Done</td><td>Matthew Skinner</td><td>03-09-2018 0:00 AM</td><td>Not Entered</td><td>Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$22&#39;)">
+				<td class="hidden">23</td><td>280</td><td>Macro Issue 03/07/2018</td><td>BreakFix</td><td>Done</td><td>Daniel Lightfoot</td><td>04-09-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$23&#39;)">
+				<td class="hidden">24</td><td>281</td><td>Error in Macro</td><td>BreakFix</td><td>Done</td><td>Daniel Lightfoot</td><td>04-09-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39#39;Select$24&#39;)">
+				<td class="hidden">25</td><td>304</td><td>PL Decline Letter Macro</td><td>Minor Enhancement</td><td>Done</td><td>Daniel Lightfoot</td><td>04-09-2018 0:00 AM</td><td>Entered</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$25&#39;)">
+				<td class="hidden">26</td><td>103</td><td>AEVD Unclaimed Monies</td><td>Adhoc</td><td>Done</td><td>Daniel Lightfoot</td><td>04-09-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$26&#39;)">
+				<td class="hidden">27</td><td>273</td><td>Pega Data Mail Merge</td><td>BreakFix</td><td>Done</td><td>Simon Killingbeck</td><td>04-09-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$27&#39;)">
+				<td class="hidden">28</td><td>400</td><td>ANZSIC CAP Macro Fix</td><td>BreakFix</td><td>Done</td><td>Matthew Skinner</td><td>05-09-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$28&#39;)">
+				<td class="hidden">29</td><td>401</td><td>Minor update to Onboarding Portal</td><td>Minor Enhancement</td><td>Done</td><td>Adas Shileika</td><td>13-09-2018 0:00 AM</td><td>Entered</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$29&#39;)">
+				<td class="hidden">30</td><td>395</td><td>SB Portal Updates - HS Subproduct</td><td>Minor Enhancement</td><td>Done</td><td>Adas Shileika</td><td>13-09-2018 0:00 AM</td><td>Entered</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$30&#39;)">
+				<td class="hidden">31</td><td>395</td><td>SB Portal Updates - HS Subproduct</td><td>Minor Enhancement</td><td>Done</td><td>Matthew Skinner</td><td>13-09-2018 0:00 AM</td><td>Entered</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$31&#39;)">
+				<td class="hidden">32</td><td>433</td><td>Parisraw data file</td><td>Adhoc</td><td>Done</td><td>Daniel Egonidis</td><td>19-09-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$32&#39;)">
+				<td class="hidden">33</td><td>437</td><td>Account Notes for campaign - Ghost Offers</td><td>Adhoc</td><td>Done</td><td>Simon Killingbeck</td><td>21-09-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$33&#39;)">
+				<td class="hidden">34</td><td>451</td><td>VDI Macro</td><td>BreakFix</td><td>Done</td><td>Nathan Street</td><td>02-10-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$34&#39;)">
+				<td class="hidden">35</td><td>429</td><td>Workflow Tool Ingestation Issue</td><td>BreakFix</td><td>Done</td><td>Simon Killingbeck</td><td>03-10-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$35&#39;)">
+				<td class="hidden">36</td><td>440</td><td>New Card Bulk Template enhancements - Phone Number and OTC/ATM fields </td><td>Minor Enhancement</td><td>Done</td><td>Zane Miller</td><td>05-10-2018 0:00 AM</td><td>Not Entered</td><td>Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$36&#39;)">
+				<td class="hidden">37</td><td>428</td><td>Macro Issue</td><td>BreakFix</td><td>Done</td><td>Daniel Lightfoot</td><td>11-10-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$37&#39;)">
+				<td class="hidden">38</td><td>428</td><td>Macro Issue</td><td>BreakFix</td><td>Done</td><td>Matthew Skinner</td><td>11-10-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$38&#39;)">
+				<td class="hidden">39</td><td>391</td><td>country code Marco for CAP</td><td>Minor Enhancement</td><td>Done</td><td>Matthew Skinner</td><td>15-10-2018 0:00 AM</td><td>Not Entered</td><td>Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$39&#39;)">
+				<td class="hidden">40</td><td>463</td><td>Simple Merchant Sales - Approval Email Updates</td><td>Minor Enhancement</td><td>Done</td><td>Nathan Street</td><td>25-10-2018 0:00 AM</td><td>Not Entered</td><td>Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$40&#39;)">
+				<td class="hidden">41</td><td>473</td><td>BladePay Onboarding Welcome Emails</td><td>Minor Enhancement</td><td>Done</td><td>Nathan Street</td><td>25-10-2018 0:00 AM</td><td>Not Entered</td><td>Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$41&#39;)">
+				<td class="hidden">42</td><td>513</td><td>MPT Fee Refund Tool - Transactive Fix</td><td>BreakFix</td><td>Done</td><td>Nathan Street</td><td>23-11-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$42&#39;)">
+				<td class="hidden">43</td><td>371</td><td>Credit balance refund macro update</td><td>Minor Enhancement</td><td>Done</td><td>Matthew Skinner</td><td>26-11-2018 0:00 AM</td><td>Not Entered</td><td>Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$43&#39;)">
+				<td class="hidden">44</td><td>142</td><td>Private Bank Segmentation Macro</td><td>Undefined</td><td>Done</td><td>Anthony De Silva</td><td>28-11-2018 0:00 AM</td><td>Entered</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$44&#39;)">
+				<td class="hidden">45</td><td>142</td><td>Private Bank Segmentation Macro</td><td>Undefined</td><td>Done</td><td>Daniel Lightfoot</td><td>28-11-2018 0:00 AM</td><td>Entered</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$45&#39;)">
+				<td class="hidden">46</td><td>142</td><td>Private Bank Segmentation Macro</td><td>Undefined</td><td>Done</td><td>Steven Hurwitz</td><td>28-11-2018 0:00 AM</td><td>Entered</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$46&#39;)">
+				<td class="hidden">47</td><td>532</td><td>New QC Checklist upload</td><td>Adhoc</td><td>Done</td><td>Matthew Skinner</td><td>12-12-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$47&#39;)">
+				<td class="hidden">48</td><td>538</td><td>Personal Loan Broker Reconciliation</td><td>Adhoc</td><td>Done</td><td>Matthew Skinner</td><td>21-12-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$48&#39;)">
+				<td class="hidden">49</td><td>539</td><td>QC Tool </td><td>Adhoc</td><td>Done</td><td>Matthew Skinner</td><td>21-12-2018 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr><tr title="Click to select row" class="rows" onmouseover="this.style.cursor=&#39;pointer&#39;;this.style.textDecoration=&#39;underline&#39;;" onmouseout="this.style.textDecoration=&#39;none&#39;;" onclick="javascript:__doPostBack(&#39;ctl00$BAScph$grdWR&#39;,&#39;Select$49&#39;)">
+				<td class="hidden">50</td><td>529</td><td>•	AML Tool is no longer picking up the closing balance of an account.</td><td>BreakFix</td><td>Done</td><td>Simon Killingbeck</td><td>08-01-2019 0:00 AM</td><td>Not Mandatory</td><td>Not Entered</td><td>&nbsp;</td>
+			</tr>
+		</table>
+	</div>
+                                    </fieldset>
+                                
+</div>
+
+                            
+
+
+
+                            
+                        </body>
+                        </html>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </form>
+
+    <div class="footer">
+        <br />
+        <div class="footer-content">
+            <p>&copy Australia and New Zealand Banking Group Limited (ANZ) 2015 ABN 11 005 357 522. ANZ's colour blue is a trade mark of ANZ.</p>
+        </div>
+    </div>
+</body>
+</html>
